@@ -28,6 +28,7 @@ set(SRC
     codegen/wasm_utils.cpp
 
     pass/param_to_const.cpp
+    pass/for_else.cpp
     pass/do_loops.cpp
     pass/for_all.cpp
     pass/global_stmts.cpp

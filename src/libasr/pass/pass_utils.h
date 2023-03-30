@@ -225,6 +225,13 @@ namespace LCompilers {
                     transform_stmts(xx.m_body, xx.n_body);
                 }
 
+                void visit_ForElse(const ASR::ForElse_t& x) {
+                    self().visit_do_loop_head(x.m_head);
+                    ASR::ForElse_t& xx = const_cast<ASR::ForElse_t&>(x);
+                    transform_stmts(xx.m_body, xx.n_body);
+                    transform_stmts(xx.m_orelse, xx.n_orelse);
+                }
+
                 void visit_WhileLoop(const ASR::WhileLoop_t& x) {
                     ASR::WhileLoop_t& xx = const_cast<ASR::WhileLoop_t&>(x);
                     self().visit_expr(*xx.m_test);
